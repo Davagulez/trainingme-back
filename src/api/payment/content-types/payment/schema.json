@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "payments"
+    },
+    "channel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::channel.channel",
+      "inversedBy": "payments"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "payment_method": {
+      "type": "string"
+    },
+    "payment_date": {
+      "type": "datetime"
+    },
+    "status_payment": {
+      "type": "string",
+      "default": "completed"
+    }
+  }
+}

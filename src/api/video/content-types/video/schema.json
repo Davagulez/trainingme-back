@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "videos",
+  "info": {
+    "singularName": "video",
+    "pluralName": "videos",
+    "displayName": "Video"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "video_file": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string"
+    },
+    "publication_date": {
+      "type": "datetime"
+    },
+    "channel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::channel.channel",
+      "inversedBy": "videos"
+    },
+    "status_video": {
+      "type": "string",
+      "default": "published"
+    },
+    "duration": {
+      "type": "decimal"
+    },
+    "views": {
+      "type": "integer",
+      "default": 0
+    },
+    "likes": {
+      "type": "integer",
+      "default": 0
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "video"
+    }
+  }
+}
